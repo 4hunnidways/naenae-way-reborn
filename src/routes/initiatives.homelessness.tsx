@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import kitchen1 from "@/assets/homeless-kitchen-1.jpg";
+import kitchen2 from "@/assets/homeless-kitchen-2.jpg";
 
 export const Route = createFileRoute("/initiatives/homelessness")({
   head: () => ({
@@ -164,11 +166,32 @@ function Homelessness() {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Each November, Nae Nae's Way and 4Hunnid Ways highlight{" "}
               <strong className="text-foreground">
-                National Homeless Youth Awareness Month
+              National Homeless Youth Awareness Month
               </strong>
               , championing the resilience of youth and young adults
               overcoming the challenges of being homeless.
             </p>
+
+            <p className="mt-6 text-muted-foreground leading-relaxed">
+              Here's a sneak peek into Nae Nae's kitchen where she cooks and
+              prepares <strong className="text-foreground">70 pasta dishes</strong>{" "}
+              for her sponsored homeless care centers.
+            </p>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <img
+                src={kitchen1}
+                alt="Shonee preparing trays of macaroni and cheese in her kitchen for sponsored homeless care centers"
+                className="rounded-2xl w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <img
+                src={kitchen2}
+                alt="Shonee plating dozens of pasta dishes for delivery to homeless families in Los Angeles"
+                className="rounded-2xl w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">

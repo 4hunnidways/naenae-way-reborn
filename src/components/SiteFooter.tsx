@@ -21,9 +21,8 @@ export function SiteFooter() {
           <p className="eyebrow">Contact</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex gap-2 items-start"><Mail size={16} className="mt-0.5 text-primary" /><a href="mailto:amy@naenaesway.org">amy@naenaesway.org</a></li>
-            <li className="flex gap-2 items-start"><Mail size={16} className="mt-0.5 text-primary" /><a href="mailto:antoinette@naenaesway.org">antoinette@naenaesway.org</a></li>
             <li className="flex gap-2 items-start"><Phone size={16} className="mt-0.5 text-primary" /><a href="tel:+18189667786">(818) 966-7786</a></li>
-            <li className="flex gap-2 items-start"><MapPin size={16} className="mt-0.5 text-primary" /><span>321 N Pass Ave #1018, Burbank, CA 91505</span></li>
+            <li className="flex gap-2 items-start"><MapPin size={16} className="mt-0.5 text-primary" /><span>Los Angeles, CA</span></li>
           </ul>
         </div>
         <div>

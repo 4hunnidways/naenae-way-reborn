@@ -8,7 +8,7 @@ export const Route = createFileRoute("/support-team")({
       {
         name: "description",
         content:
-          "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, Antoinette Brown, and Davin Stanley.",
+          "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, and Davin Stanley.",
       },
       { property: "og:title", content: "Support Team — Nae Nae's Way" },
       {
@@ -36,10 +36,6 @@ const team: { name: string; role?: string; bio: string }[] = [
     name: "Amy Rafe",
     role: "Community Advocate",
     bio: "First and foremost, I am a Mother, Grandmother and Great-Grandmother whose life's mission is one of service. I strive to carve a brighter path for my family as well as my community. My experiences come from over 45 years of community advocacy and involvement, focusing on making a difference. Working alongside organizations such as The Mothers of Watts, Operation PUSH, the NAACP, and numerous others — fighting for change while continuing to bridge the gap, opening up doors of opportunity, and helping to educate our underserved communities — has been my life's mission. This passion led me to work for over 23 years with the State of Georgia, focusing on Persons with Disabilities. I plan to use my past experiences and self-driven passions to continue building bridges, while assisting in developing stronger, more informed and healthy individuals, families and communities.",
-  },
-  {
-    name: "Antoinette Brown",
-    bio: "Bio coming soon.",
   },
   {
     name: "Davin Stanley",

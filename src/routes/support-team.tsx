@@ -8,7 +8,7 @@ export const Route = createFileRoute("/support-team")({
       {
         name: "description",
         content:
-          "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, Antoinette Brown, and Davin Stanley.",
+          "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, and Davin Stanley.",
       },
       { property: "og:title", content: "Support Team — Nae Nae's Way" },
       {

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as OurImpactRouteImport } from './routes/our-impact'
+import { Route as MeetNaeNaeRouteImport } from './routes/meet-nae-nae'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as IndexRouteImport } from './routes/index'
@@ -30,6 +31,11 @@ const SponsorsRoute = SponsorsRouteImport.update({
 const OurImpactRoute = OurImpactRouteImport.update({
   id: '/our-impact',
   path: '/our-impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetNaeNaeRoute = MeetNaeNaeRouteImport.update({
+  id: '/meet-nae-nae',
+  path: '/meet-nae-nae',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
   '/who-we-are': typeof WhoWeAreRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
   '/who-we-are': typeof WhoWeAreRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
   '/who-we-are': typeof WhoWeAreRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
     | '/who-we-are'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
     | '/who-we-are'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
     | '/who-we-are'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRoute
+  MeetNaeNaeRoute: typeof MeetNaeNaeRoute
   OurImpactRoute: typeof OurImpactRoute
   SponsorsRoute: typeof SponsorsRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/our-impact'
       fullPath: '/our-impact'
       preLoaderRoute: typeof OurImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meet-nae-nae': {
+      id: '/meet-nae-nae'
+      path: '/meet-nae-nae'
+      fullPath: '/meet-nae-nae'
+      preLoaderRoute: typeof MeetNaeNaeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRoute,
+  MeetNaeNaeRoute: MeetNaeNaeRoute,
   OurImpactRoute: OurImpactRoute,
   SponsorsRoute: SponsorsRoute,
   WhoWeAreRoute: WhoWeAreRoute,
@@ -187,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
-import founder from "@/assets/founder.jpg";
+import founder from "@/assets/founder-portrait.jpg";
 
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({

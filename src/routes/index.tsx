@@ -97,6 +97,16 @@ function Home() {
           >
             Get in Touch <ArrowRight size={16} className="ml-2" />
           </a>
+
+          <div className="mt-12 mx-auto max-w-4xl aspect-video rounded-3xl overflow-hidden border border-border shadow-2xl">
+            <iframe
+              src="https://www.youtube.com/embed/enngj1XN2F8"
+              title="Nae Nae's Way"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
         </div>
       </section>
 

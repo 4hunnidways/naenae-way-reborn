@@ -19,6 +19,7 @@ import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CelebritySupportersRouteImport } from './routes/celebrity-supporters'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InitiativesVisualImpairmentRouteImport } from './routes/initiatives.visual-impairment'
 import { Route as InitiativesSlugRouteImport } from './routes/initiatives.$slug'
 
 const WhoWeAreRoute = WhoWeAreRouteImport.update({
@@ -71,6 +72,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InitiativesVisualImpairmentRoute =
+  InitiativesVisualImpairmentRouteImport.update({
+    id: '/initiatives/visual-impairment',
+    path: '/initiatives/visual-impairment',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const InitiativesSlugRoute = InitiativesSlugRouteImport.update({
   id: '/initiatives/$slug',
   path: '/initiatives/$slug',
@@ -89,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesByTo {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +125,7 @@ export interface FileRoutesById {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/visual-impairment'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/visual-impairment'
   id:
     | '__root__'
     | '/'
@@ -157,6 +169,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/visual-impairment'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +184,7 @@ export interface RootRouteChildren {
   SupportTeamRoute: typeof SupportTeamRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
   InitiativesSlugRoute: typeof InitiativesSlugRoute
+  InitiativesVisualImpairmentRoute: typeof InitiativesVisualImpairmentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,6 +259,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/initiatives/visual-impairment': {
+      id: '/initiatives/visual-impairment'
+      path: '/initiatives/visual-impairment'
+      fullPath: '/initiatives/visual-impairment'
+      preLoaderRoute: typeof InitiativesVisualImpairmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/initiatives/$slug': {
       id: '/initiatives/$slug'
       path: '/initiatives/$slug'
@@ -267,6 +288,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportTeamRoute: SupportTeamRoute,
   WhoWeAreRoute: WhoWeAreRoute,
   InitiativesSlugRoute: InitiativesSlugRoute,
+  InitiativesVisualImpairmentRoute: InitiativesVisualImpairmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -139,11 +139,6 @@ function Home() {
               </article>
             ))}
           </div>
-          <div className="mt-12 grid sm:grid-cols-3 gap-4">
-            {[community, family, signing].map((src, i) => (
-              <img key={i} src={src} loading="lazy" alt="Community moments" className="rounded-2xl aspect-square object-cover w-full" />
-            ))}
-          </div>
         </div>
       </section>
 

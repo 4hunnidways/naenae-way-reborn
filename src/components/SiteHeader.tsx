@@ -18,10 +18,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="container-narrow flex items-center justify-between py-4 px-2">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Nae Nae's Way crest" className="h-14 w-14 object-contain" />
-          <span className="font-display text-2xl tracking-wide text-primary">
-            Nae Nae's Way
-          </span>
+          <img src={logo} alt="Nae Nae's Way" className="h-16 w-auto object-contain" />
+          <span className="sr-only">Nae Nae's Way</span>
         </Link>
         <nav className="hidden md:flex items-center gap-1">
           {nav.map((n) => (

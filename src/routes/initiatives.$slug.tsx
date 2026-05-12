@@ -106,7 +106,7 @@ function Initiative() {
           <h1 className="mt-3 font-display text-5xl md:text-6xl">{item.title}</h1>
           <p className="mt-4 text-primary text-xl italic">{item.tagline}</p>
           <div className="mt-8 space-y-5 text-muted-foreground text-lg leading-relaxed">
-            {item.body.map((p, i) => <p key={i}>{p}</p>)}
+            {item.body.map((p: string, i: number) => <p key={i}>{p}</p>)}
           </div>
           <Link to="/donate" className="pill-link mt-10 inline-flex">Support this cause</Link>
         </div>

@@ -21,6 +21,10 @@ import { Route as CelebritySupportersRouteImport } from './routes/celebrity-supp
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InitiativesVisualImpairmentRouteImport } from './routes/initiatives.visual-impairment'
 import { Route as InitiativesMentalHealthRouteImport } from './routes/initiatives.mental-health'
+import { Route as InitiativesHomelessnessRouteImport } from './routes/initiatives.homelessness'
+import { Route as InitiativesFitnessPhysicalHealthRouteImport } from './routes/initiatives.fitness-physical-health'
+import { Route as InitiativesDiabetesRouteImport } from './routes/initiatives.diabetes'
+import { Route as InitiativesCancerRouteImport } from './routes/initiatives.cancer'
 import { Route as InitiativesSlugRouteImport } from './routes/initiatives.$slug'
 
 const WhoWeAreRoute = WhoWeAreRouteImport.update({
@@ -84,6 +88,27 @@ const InitiativesMentalHealthRoute = InitiativesMentalHealthRouteImport.update({
   path: '/initiatives/mental-health',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InitiativesHomelessnessRoute = InitiativesHomelessnessRouteImport.update({
+  id: '/initiatives/homelessness',
+  path: '/initiatives/homelessness',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InitiativesFitnessPhysicalHealthRoute =
+  InitiativesFitnessPhysicalHealthRouteImport.update({
+    id: '/initiatives/fitness-physical-health',
+    path: '/initiatives/fitness-physical-health',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const InitiativesDiabetesRoute = InitiativesDiabetesRouteImport.update({
+  id: '/initiatives/diabetes',
+  path: '/initiatives/diabetes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InitiativesCancerRoute = InitiativesCancerRouteImport.update({
+  id: '/initiatives/cancer',
+  path: '/initiatives/cancer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InitiativesSlugRoute = InitiativesSlugRouteImport.update({
   id: '/initiatives/$slug',
   path: '/initiatives/$slug',
@@ -102,6 +127,10 @@ export interface FileRoutesByFullPath {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/cancer': typeof InitiativesCancerRoute
+  '/initiatives/diabetes': typeof InitiativesDiabetesRoute
+  '/initiatives/fitness-physical-health': typeof InitiativesFitnessPhysicalHealthRoute
+  '/initiatives/homelessness': typeof InitiativesHomelessnessRoute
   '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
@@ -117,6 +146,10 @@ export interface FileRoutesByTo {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/cancer': typeof InitiativesCancerRoute
+  '/initiatives/diabetes': typeof InitiativesDiabetesRoute
+  '/initiatives/fitness-physical-health': typeof InitiativesFitnessPhysicalHealthRoute
+  '/initiatives/homelessness': typeof InitiativesHomelessnessRoute
   '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
@@ -133,6 +166,10 @@ export interface FileRoutesById {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/cancer': typeof InitiativesCancerRoute
+  '/initiatives/diabetes': typeof InitiativesDiabetesRoute
+  '/initiatives/fitness-physical-health': typeof InitiativesFitnessPhysicalHealthRoute
+  '/initiatives/homelessness': typeof InitiativesHomelessnessRoute
   '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
@@ -150,6 +187,10 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/cancer'
+    | '/initiatives/diabetes'
+    | '/initiatives/fitness-physical-health'
+    | '/initiatives/homelessness'
     | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   fileRoutesByTo: FileRoutesByTo
@@ -165,6 +206,10 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/cancer'
+    | '/initiatives/diabetes'
+    | '/initiatives/fitness-physical-health'
+    | '/initiatives/homelessness'
     | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   id:
@@ -180,6 +225,10 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/cancer'
+    | '/initiatives/diabetes'
+    | '/initiatives/fitness-physical-health'
+    | '/initiatives/homelessness'
     | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   fileRoutesById: FileRoutesById
@@ -196,6 +245,10 @@ export interface RootRouteChildren {
   SupportTeamRoute: typeof SupportTeamRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
   InitiativesSlugRoute: typeof InitiativesSlugRoute
+  InitiativesCancerRoute: typeof InitiativesCancerRoute
+  InitiativesDiabetesRoute: typeof InitiativesDiabetesRoute
+  InitiativesFitnessPhysicalHealthRoute: typeof InitiativesFitnessPhysicalHealthRoute
+  InitiativesHomelessnessRoute: typeof InitiativesHomelessnessRoute
   InitiativesMentalHealthRoute: typeof InitiativesMentalHealthRoute
   InitiativesVisualImpairmentRoute: typeof InitiativesVisualImpairmentRoute
 }
@@ -286,6 +339,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InitiativesMentalHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/initiatives/homelessness': {
+      id: '/initiatives/homelessness'
+      path: '/initiatives/homelessness'
+      fullPath: '/initiatives/homelessness'
+      preLoaderRoute: typeof InitiativesHomelessnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/initiatives/fitness-physical-health': {
+      id: '/initiatives/fitness-physical-health'
+      path: '/initiatives/fitness-physical-health'
+      fullPath: '/initiatives/fitness-physical-health'
+      preLoaderRoute: typeof InitiativesFitnessPhysicalHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/initiatives/diabetes': {
+      id: '/initiatives/diabetes'
+      path: '/initiatives/diabetes'
+      fullPath: '/initiatives/diabetes'
+      preLoaderRoute: typeof InitiativesDiabetesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/initiatives/cancer': {
+      id: '/initiatives/cancer'
+      path: '/initiatives/cancer'
+      fullPath: '/initiatives/cancer'
+      preLoaderRoute: typeof InitiativesCancerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/initiatives/$slug': {
       id: '/initiatives/$slug'
       path: '/initiatives/$slug'
@@ -308,9 +389,23 @@ const rootRouteChildren: RootRouteChildren = {
   SupportTeamRoute: SupportTeamRoute,
   WhoWeAreRoute: WhoWeAreRoute,
   InitiativesSlugRoute: InitiativesSlugRoute,
+  InitiativesCancerRoute: InitiativesCancerRoute,
+  InitiativesDiabetesRoute: InitiativesDiabetesRoute,
+  InitiativesFitnessPhysicalHealthRoute: InitiativesFitnessPhysicalHealthRoute,
+  InitiativesHomelessnessRoute: InitiativesHomelessnessRoute,
   InitiativesMentalHealthRoute: InitiativesMentalHealthRoute,
   InitiativesVisualImpairmentRoute: InitiativesVisualImpairmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

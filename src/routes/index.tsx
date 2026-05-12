@@ -4,6 +4,15 @@ import founder from "@/assets/founder.jpg";
 import community from "@/assets/community.jpg";
 import family from "@/assets/family.jpg";
 import signing from "@/assets/signing.jpg";
+import sponsor4Hunnid from "@/assets/sponsor-4hunnid.jpeg";
+import sponsorFishbone from "@/assets/sponsor-fishbone.png";
+import sponsorDatMoi from "@/assets/sponsor-datmoi.png";
+
+const sponsors = [
+  { name: "4Hunnid", logo: sponsor4Hunnid },
+  { name: "Fish Bone", logo: sponsorFishbone },
+  { name: "Dat Moi Market", logo: sponsorDatMoi },
+];
 import { Heart, Users, Megaphone, ArrowRight } from "lucide-react";
 
 const initiatives = [
@@ -174,10 +183,10 @@ function Home() {
         <div className="container-narrow text-center">
           <p className="eyebrow">Home: Sponsors</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">Our Sponsors</h2>
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
-            {["4Hunnid Ways","YG Foundation","Karen Civil","Compton Cares","Calabasas Coalition","MS Brokerage Transportation"].map((s) => (
-              <div key={s} className="aspect-[4/3] rounded-2xl bg-card border border-border flex items-center justify-center text-center px-4">
-                <span className="font-display text-xl text-foreground/90">{s}</span>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {sponsors.map((s) => (
+              <div key={s.name} className="aspect-[4/3] rounded-2xl bg-card border border-border flex items-center justify-center p-8 hover:border-primary/60 transition">
+                <img src={s.logo} alt={`${s.name} logo`} className="max-h-full max-w-full object-contain" loading="lazy" />
               </div>
             ))}
           </div>

@@ -20,6 +20,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CelebritySupportersRouteImport } from './routes/celebrity-supporters'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InitiativesVisualImpairmentRouteImport } from './routes/initiatives.visual-impairment'
+import { Route as InitiativesMentalHealthRouteImport } from './routes/initiatives.mental-health'
 import { Route as InitiativesSlugRouteImport } from './routes/initiatives.$slug'
 
 const WhoWeAreRoute = WhoWeAreRouteImport.update({
@@ -78,6 +79,11 @@ const InitiativesVisualImpairmentRoute =
     path: '/initiatives/visual-impairment',
     getParentRoute: () => rootRouteImport,
   } as any)
+const InitiativesMentalHealthRoute = InitiativesMentalHealthRouteImport.update({
+  id: '/initiatives/mental-health',
+  path: '/initiatives/mental-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InitiativesSlugRoute = InitiativesSlugRouteImport.update({
   id: '/initiatives/$slug',
   path: '/initiatives/$slug',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRoutesByTo {
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRoutesById {
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
+  '/initiatives/mental-health': typeof InitiativesMentalHealthRoute
   '/initiatives/visual-impairment': typeof InitiativesVisualImpairmentRoute
 }
 export interface FileRouteTypes {
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   id:
     | '__root__'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
+    | '/initiatives/mental-health'
     | '/initiatives/visual-impairment'
   fileRoutesById: FileRoutesById
 }
@@ -184,6 +196,7 @@ export interface RootRouteChildren {
   SupportTeamRoute: typeof SupportTeamRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
   InitiativesSlugRoute: typeof InitiativesSlugRoute
+  InitiativesMentalHealthRoute: typeof InitiativesMentalHealthRoute
   InitiativesVisualImpairmentRoute: typeof InitiativesVisualImpairmentRoute
 }
 
@@ -266,6 +279,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InitiativesVisualImpairmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/initiatives/mental-health': {
+      id: '/initiatives/mental-health'
+      path: '/initiatives/mental-health'
+      fullPath: '/initiatives/mental-health'
+      preLoaderRoute: typeof InitiativesMentalHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/initiatives/$slug': {
       id: '/initiatives/$slug'
       path: '/initiatives/$slug'
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportTeamRoute: SupportTeamRoute,
   WhoWeAreRoute: WhoWeAreRoute,
   InitiativesSlugRoute: InitiativesSlugRoute,
+  InitiativesMentalHealthRoute: InitiativesMentalHealthRoute,
   InitiativesVisualImpairmentRoute: InitiativesVisualImpairmentRoute,
 }
 export const routeTree = rootRouteImport

@@ -10,16 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
+import { Route as SupportTeamRouteImport } from './routes/support-team'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as OurImpactRouteImport } from './routes/our-impact'
+import { Route as MeetNaeNaeRouteImport } from './routes/meet-nae-nae'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CelebritySupportersRouteImport } from './routes/celebrity-supporters'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InitiativesSlugRouteImport } from './routes/initiatives.$slug'
 
 const WhoWeAreRoute = WhoWeAreRouteImport.update({
   id: '/who-we-are',
   path: '/who-we-are',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportTeamRoute = SupportTeamRouteImport.update({
+  id: '/support-team',
+  path: '/support-team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SponsorsRoute = SponsorsRouteImport.update({
@@ -32,6 +41,11 @@ const OurImpactRoute = OurImpactRouteImport.update({
   path: '/our-impact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MeetNaeNaeRoute = MeetNaeNaeRouteImport.update({
+  id: '/meet-nae-nae',
+  path: '/meet-nae-nae',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
@@ -40,6 +54,16 @@ const EventsRoute = EventsRouteImport.update({
 const DonateRoute = DonateRouteImport.update({
   id: '/donate',
   path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CelebritySupportersRoute = CelebritySupportersRouteImport.update({
+  id: '/celebrity-supporters',
+  path: '/celebrity-supporters',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -55,29 +79,41 @@ const InitiativesSlugRoute = InitiativesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/celebrity-supporters': typeof CelebritySupportersRoute
+  '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
+  '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/celebrity-supporters': typeof CelebritySupportersRoute
+  '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
+  '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/celebrity-supporters': typeof CelebritySupportersRoute
+  '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
+  '/meet-nae-nae': typeof MeetNaeNaeRoute
   '/our-impact': typeof OurImpactRoute
   '/sponsors': typeof SponsorsRoute
+  '/support-team': typeof SupportTeamRoute
   '/who-we-are': typeof WhoWeAreRoute
   '/initiatives/$slug': typeof InitiativesSlugRoute
 }
@@ -85,38 +121,54 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/celebrity-supporters'
+    | '/contact'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
+    | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/celebrity-supporters'
+    | '/contact'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
+    | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
   id:
     | '__root__'
     | '/'
+    | '/celebrity-supporters'
+    | '/contact'
     | '/donate'
     | '/events'
+    | '/meet-nae-nae'
     | '/our-impact'
     | '/sponsors'
+    | '/support-team'
     | '/who-we-are'
     | '/initiatives/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CelebritySupportersRoute: typeof CelebritySupportersRoute
+  ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRoute
+  MeetNaeNaeRoute: typeof MeetNaeNaeRoute
   OurImpactRoute: typeof OurImpactRoute
   SponsorsRoute: typeof SponsorsRoute
+  SupportTeamRoute: typeof SupportTeamRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
   InitiativesSlugRoute: typeof InitiativesSlugRoute
 }
@@ -128,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/who-we-are'
       fullPath: '/who-we-are'
       preLoaderRoute: typeof WhoWeAreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support-team': {
+      id: '/support-team'
+      path: '/support-team'
+      fullPath: '/support-team'
+      preLoaderRoute: typeof SupportTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sponsors': {
@@ -144,6 +203,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OurImpactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meet-nae-nae': {
+      id: '/meet-nae-nae'
+      path: '/meet-nae-nae'
+      fullPath: '/meet-nae-nae'
+      preLoaderRoute: typeof MeetNaeNaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events': {
       id: '/events'
       path: '/events'
@@ -156,6 +222,20 @@ declare module '@tanstack/react-router' {
       path: '/donate'
       fullPath: '/donate'
       preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/celebrity-supporters': {
+      id: '/celebrity-supporters'
+      path: '/celebrity-supporters'
+      fullPath: '/celebrity-supporters'
+      preLoaderRoute: typeof CelebritySupportersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -177,10 +257,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CelebritySupportersRoute: CelebritySupportersRoute,
+  ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRoute,
+  MeetNaeNaeRoute: MeetNaeNaeRoute,
   OurImpactRoute: OurImpactRoute,
   SponsorsRoute: SponsorsRoute,
+  SupportTeamRoute: SupportTeamRoute,
   WhoWeAreRoute: WhoWeAreRoute,
   InitiativesSlugRoute: InitiativesSlugRoute,
 }

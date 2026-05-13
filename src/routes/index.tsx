@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import founder from "@/assets/founder.jpg";
-import founderPortrait from "@/assets/founder-portrait.jpg";
+import founderPortrait from "@/assets/founder-meet.jpeg";
 import community from "@/assets/community.jpg";
 import family from "@/assets/family.jpg";
 import signing from "@/assets/signing.jpg";

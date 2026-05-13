@@ -146,7 +146,7 @@ function Home() {
       {/* FOUNDER */}
       <section className="section bg-surface">
         <div className="container-narrow grid lg:grid-cols-2 gap-12 items-center">
-          <img src={founder} loading="lazy" alt="Shonee Jackson" className="rounded-3xl w-full object-cover" />
+          <img src={founderPortrait} loading="lazy" alt="Shonee Jackson" className="rounded-3xl w-full object-cover" />
           <div>
             <p className="eyebrow">Meet the Founder</p>
             <h2 className="mt-3 font-display text-4xl md:text-5xl">Shonee Jackson</h2>

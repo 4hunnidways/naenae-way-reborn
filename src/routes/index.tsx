@@ -146,7 +146,14 @@ function Home() {
       {/* FOUNDER */}
       <section className="section bg-surface">
         <div className="container-narrow grid lg:grid-cols-2 gap-12 items-center">
-          <img src={founderPortrait} loading="lazy" alt="Shonee Jackson" className="rounded-3xl w-full object-cover" />
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src={founderPortrait}
+              loading="lazy"
+              alt="Shonee Jackson"
+              className="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl ring-4 ring-primary/30"
+            />
+          </div>
           <div>
             <p className="eyebrow">Meet the Founder</p>
             <h2 className="mt-3 font-display text-4xl md:text-5xl">Shonee Jackson</h2>

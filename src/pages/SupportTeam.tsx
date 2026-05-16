@@ -1,25 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-
-export const Route = createFileRoute("/support-team")({
-  head: () => ({
-    meta: [
-      { title: "Support Team — Nae Nae's Way" },
-      {
-        name: "description",
-        content:
-          "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, and Davin Stanley.",
-      },
-      { property: "og:title", content: "Support Team — Nae Nae's Way" },
-      {
-        property: "og:description",
-        content:
-          "Meet the people who keep our mission moving forward.",
-      },
-    ],
-  }),
-  component: SupportTeam,
-});
+import { useSeo } from "@/lib/seo";
 
 const team: { name: string; role?: string; bio: string }[] = [
   {
@@ -44,54 +25,42 @@ const team: { name: string; role?: string; bio: string }[] = [
   },
 ];
 
-function SupportTeam() {
+export default function SupportTeam() {
+  useSeo(
+    "Support Team — Nae Nae's Way",
+    "The leaders, advocates, and creators behind Nae Nae's Way — Aja Brown, Tai Savet, Amy Rafe, and Davin Stanley.",
+  );
   return (
     <Layout>
       <section className="section">
         <div className="container-narrow">
           <p className="eyebrow">Who We Are</p>
-          <h1 className="mt-3 font-display text-5xl md:text-6xl">
-            Our Support Team
-          </h1>
+          <h1 className="mt-3 font-display text-5xl md:text-6xl">Our Support Team</h1>
           <p className="mt-6 text-muted-foreground max-w-2xl leading-relaxed text-lg">
-            The leaders, advocates, and creators who help Nae Nae's Way show
-            up for our community every day.
+            The leaders, advocates, and creators who help Nae Nae's Way show up for our
+            community every day.
           </p>
 
           <div className="mt-14 space-y-6">
             {team.map((m) => (
-              <article
-                key={m.name}
-                className="rounded-3xl bg-card border border-border p-8 md:p-10 hover:border-primary/60 transition-colors"
-              >
+              <article key={m.name} className="rounded-3xl bg-card border border-border p-8 md:p-10 hover:border-primary/60 transition-colors">
                 <div className="flex items-start gap-6">
                   <div className="h-16 w-16 shrink-0 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center text-primary-foreground font-display text-2xl">
-                    {m.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")
-                      .slice(0, 2)}
+                    {m.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                   </div>
                   <div>
                     <h2 className="font-display text-3xl">{m.name}</h2>
-                    {m.role && (
-                      <p className="mt-1 text-primary italic">{m.role}</p>
-                    )}
+                    {m.role && <p className="mt-1 text-primary italic">{m.role}</p>}
                   </div>
                 </div>
-                <p className="mt-5 text-muted-foreground leading-relaxed">
-                  {m.bio}
-                </p>
+                <p className="mt-5 text-muted-foreground leading-relaxed">{m.bio}</p>
               </article>
             ))}
           </div>
 
           <div className="mt-12 flex flex-wrap gap-4">
             <Link to="/donate" className="pill-link">Support our work</Link>
-            <Link
-              to="/contact"
-              className="px-6 py-2.5 rounded-full border border-border hover:border-primary hover:text-primary font-medium"
-            >
+            <Link to="/contact" className="px-6 py-2.5 rounded-full border border-border hover:border-primary hover:text-primary font-medium">
               Get in touch
             </Link>
           </div>

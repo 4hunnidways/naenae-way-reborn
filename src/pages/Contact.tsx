@@ -1,18 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import { useSeo } from "@/lib/seo";
 import { Mail, Instagram, Phone } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Nae Nae's Way" },
-      { name: "description", content: "Get in touch with Nae Nae's Way." },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
+export default function Contact() {
+  useSeo("Contact — Nae Nae's Way", "Get in touch with Nae Nae's Way.");
   return (
     <Layout>
       <section className="section">
@@ -20,8 +11,8 @@ function Contact() {
           <p className="eyebrow">Get In Touch</p>
           <h1 className="mt-3 font-display text-5xl">Contact</h1>
           <p className="mt-6 text-muted-foreground max-w-2xl leading-relaxed">
-            Partnerships, press, volunteering, or just to say hello — we'd love to
-            hear from you.
+            Partnerships, press, volunteering, or just to say hello — we'd love to hear from
+            you.
           </p>
 
           <div className="mt-12 grid sm:grid-cols-3 gap-6">

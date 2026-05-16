@@ -1,16 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import { useSeo } from "@/lib/seo";
 import { Calendar, MapPin } from "lucide-react";
-
-export const Route = createFileRoute("/events")({
-  head: () => ({
-    meta: [
-      { title: "Events — Nae Nae's Way" },
-      { name: "description", content: "Upcoming community events, fundraisers, and awareness drives." },
-    ],
-  }),
-  component: Events,
-});
 
 const events = [
   { date: "Sep 14, 2026", title: "Annual Community Health Fair", place: "Burbank, CA" },
@@ -19,7 +9,8 @@ const events = [
   { date: "Feb 8, 2027", title: "Mental Health Roundtable", place: "Virtual" },
 ];
 
-function Events() {
+export default function Events() {
+  useSeo("Events — Nae Nae's Way", "Upcoming community events, fundraisers, and awareness drives.");
   return (
     <Layout>
       <section className="section">
@@ -27,8 +18,8 @@ function Events() {
           <p className="eyebrow">Events</p>
           <h1 className="mt-3 font-display text-5xl md:text-6xl">Show up. Stand together.</h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            Join us at upcoming events to support our initiatives, meet the
-            community, and be part of the change.
+            Join us at upcoming events to support our initiatives, meet the community, and be
+            part of the change.
           </p>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
             {events.map((e) => (

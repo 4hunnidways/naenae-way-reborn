@@ -1,18 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import { useSeo } from "@/lib/seo";
 import community from "@/assets/community.jpg";
 import family from "@/assets/family.jpg";
 import signing from "@/assets/signing.jpg";
-
-export const Route = createFileRoute("/our-impact")({
-  head: () => ({
-    meta: [
-      { title: "Our Impact — Nae Nae's Way" },
-      { name: "description", content: "The lives touched and the work being done in our communities." },
-    ],
-  }),
-  component: Impact,
-});
 
 const stats = [
   { v: "12K+", l: "Meals served" },
@@ -21,7 +11,8 @@ const stats = [
   { v: "20+", l: "Partner organizations" },
 ];
 
-function Impact() {
+export default function OurImpact() {
+  useSeo("Our Impact — Nae Nae's Way", "The lives touched and the work being done in our communities.");
   return (
     <Layout>
       <section className="section">
@@ -29,8 +20,7 @@ function Impact() {
           <p className="eyebrow">Our Impact</p>
           <h1 className="mt-3 font-display text-5xl md:text-6xl">Action over words.</h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            We measure success in the lives we touch. Here's a snapshot of the
-            work in motion.
+            We measure success in the lives we touch. Here's a snapshot of the work in motion.
           </p>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((s) => (

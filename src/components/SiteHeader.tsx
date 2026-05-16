@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -39,6 +39,20 @@ const nav: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
+function useActive(to: string, exact = false) {
+  const { pathname } = useLocation();
+  return exact ? pathname === to : pathname === to || pathname.startsWith(to + "/");
+}
+
+function NavLinkItem({ to, exact, children, className }: { to: string; exact?: boolean; children: React.ReactNode; className?: string }) {
+  const active = useActive(to, exact);
+  return (
+    <Link to={to} className={className} data-active={active ? "true" : undefined}>
+      {children}
+    </Link>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
@@ -55,21 +69,16 @@ export function SiteHeader() {
           {nav.map((n) =>
             n.children ? (
               <div key={n.label} className="relative group">
-                <Link
-                  to={n.to!}
-                  className="nav-link inline-flex items-center gap-1"
-                  activeProps={{ "data-active": "true" } as any}
-                >
+                <NavLinkItem to={n.to!} className="nav-link inline-flex items-center gap-1">
                   {n.label}
                   <ChevronDown size={14} className="opacity-70" />
-                </Link>
+                </NavLinkItem>
                 <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                   <div className="min-w-[220px] rounded-2xl bg-background border border-border shadow-2xl p-2">
                     {n.children.map((c) => (
                       <Link
                         key={c.to}
-                        to={c.to as any}
-                        params={c.to.startsWith("/initiatives/") ? { slug: c.to.split("/").pop()! } as any : undefined}
+                        to={c.to}
                         className="block px-4 py-2 rounded-xl text-sm hover:bg-surface hover:text-primary transition"
                       >
                         {c.label}
@@ -79,16 +88,10 @@ export function SiteHeader() {
                 </div>
               </div>
             ) : (
-              <Link
-                key={n.to}
-                to={n.to!}
-                className="nav-link"
-                activeProps={{ "data-active": "true" } as any}
-                activeOptions={{ exact: !!n.exact }}
-              >
+              <NavLinkItem key={n.to} to={n.to!} exact={n.exact} className="nav-link">
                 {n.label}
-              </Link>
-            )
+              </NavLinkItem>
+            ),
           )}
         </nav>
 
@@ -118,21 +121,11 @@ export function SiteHeader() {
                 </button>
                 {openGroup === n.label && (
                   <div className="pl-4 flex flex-col gap-1 py-1">
-                    <Link
-                      to={n.to!}
-                      onClick={() => setOpen(false)}
-                      className="nav-link text-sm opacity-80"
-                    >
+                    <Link to={n.to!} onClick={() => setOpen(false)} className="nav-link text-sm opacity-80">
                       Overview
                     </Link>
                     {n.children.map((c) => (
-                      <Link
-                        key={c.to}
-                        to={c.to as any}
-                        params={c.to.startsWith("/initiatives/") ? { slug: c.to.split("/").pop()! } as any : undefined}
-                        onClick={() => setOpen(false)}
-                        className="nav-link text-sm"
-                      >
+                      <Link key={c.to} to={c.to} onClick={() => setOpen(false)} className="nav-link text-sm">
                         {c.label}
                       </Link>
                     ))}
@@ -140,17 +133,10 @@ export function SiteHeader() {
                 )}
               </div>
             ) : (
-              <Link
-                key={n.to}
-                to={n.to!}
-                className="nav-link"
-                activeProps={{ "data-active": "true" } as any}
-                activeOptions={{ exact: !!n.exact }}
-                onClick={() => setOpen(false)}
-              >
+              <NavLinkItem key={n.to} to={n.to!} exact={n.exact} className="nav-link">
                 {n.label}
-              </Link>
-            )
+              </NavLinkItem>
+            ),
           )}
         </nav>
       )}

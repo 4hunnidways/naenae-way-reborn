@@ -1,18 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import { useSeo } from "@/lib/seo";
 import sponsor4Hunnid from "@/assets/sponsor-4hunnid.jpeg";
 import sponsorFishbone from "@/assets/sponsor-fishbone.png";
 import sponsorDatMoi from "@/assets/sponsor-datmoi.png";
-
-export const Route = createFileRoute("/sponsors")({
-  head: () => ({
-    meta: [
-      { title: "Sponsors — Nae Nae's Way" },
-      { name: "description", content: "The partners and sponsors who make our work possible." },
-    ],
-  }),
-  component: Sponsors,
-});
 
 const sponsors = [
   { name: "4Hunnid", logo: sponsor4Hunnid },
@@ -20,7 +10,8 @@ const sponsors = [
   { name: "Dat Moi Market", logo: sponsorDatMoi },
 ];
 
-function Sponsors() {
+export default function Sponsors() {
+  useSeo("Sponsors — Nae Nae's Way", "The partners and sponsors who make our work possible.");
   return (
     <Layout>
       <section className="section">
@@ -28,8 +19,8 @@ function Sponsors() {
           <p className="eyebrow">Sponsors</p>
           <h1 className="mt-3 font-display text-5xl md:text-6xl">Partners in the mission.</h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            We're grateful to the organizations and individuals who help fuel
-            every initiative we run.
+            We're grateful to the organizations and individuals who help fuel every initiative
+            we run.
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {sponsors.map((s) => (

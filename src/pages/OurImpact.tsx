@@ -1,8 +1,5 @@
 import { Layout } from "@/components/Layout";
 import { useSeo } from "@/lib/seo";
-import community from "@/assets/community.jpg";
-import family from "@/assets/family.jpg";
-import signing from "@/assets/signing.jpg";
 
 const stats = [
   { v: "12K+", l: "Meals served" },
@@ -30,10 +27,16 @@ export default function OurImpact() {
               </div>
             ))}
           </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-4">
-            <img src={community} loading="lazy" alt="Volunteers" className="rounded-2xl aspect-[4/5] object-cover w-full" />
-            <img src={family} loading="lazy" alt="Family" className="rounded-2xl aspect-[4/5] object-cover w-full" />
-            <img src={signing} loading="lazy" alt="Pledge signing" className="rounded-2xl aspect-[4/5] object-cover w-full" />
+          <div className="mt-12 relative w-full overflow-hidden rounded-2xl shadow-2xl" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/w7VG4hX-dMw"
+              title="Nae Nae's Way — Our Impact"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

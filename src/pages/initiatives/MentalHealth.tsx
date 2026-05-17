@@ -42,6 +42,18 @@ export default function MentalHealth() {
 
       <section className="section pt-0">
         <div className="container-narrow max-w-3xl">
+          <h2 className="font-display text-3xl mb-4 text-foreground">Mental Health Awareness</h2>
+          <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl mb-12" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/9nb9AcVbl3M"
+              title="Mental Health Awareness"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
           <div className="rounded-3xl border border-border bg-card p-8 md:p-10">
             <p className="eyebrow">Resources</p>
             <h2 className="mt-3 font-display text-3xl">If you or a loved one needs help</h2>

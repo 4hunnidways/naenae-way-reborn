@@ -78,6 +78,16 @@ export default function Homelessness() {
               <img src={kitchen1} alt="Shonee preparing trays of macaroni and cheese in her kitchen for sponsored homeless care centers" className="rounded-2xl w-full h-auto object-cover" loading="lazy" />
               <img src={kitchen2} alt="Shonee plating dozens of pasta dishes for delivery to homeless families in Los Angeles" className="rounded-2xl w-full h-auto object-cover" loading="lazy" />
             </div>
+
+            <p className="mt-8 text-muted-foreground leading-relaxed">
+              And here's that food reaching neighbors on the streets of downtown LA — meals handed out
+              directly to families and individuals living unhoused.
+            </p>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <img src={street1} alt="Volunteer handing a meal bag to a child on Skid Row in downtown LA" className="rounded-2xl w-full h-auto object-cover" loading="lazy" />
+              <img src={street2} alt="Shonee distributing meal bags from the van to a neighbor downtown" className="rounded-2xl w-full h-auto object-cover" loading="lazy" />
+            </div>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">

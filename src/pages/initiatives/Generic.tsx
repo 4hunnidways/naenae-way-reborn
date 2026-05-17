@@ -41,6 +41,24 @@ export default function InitiativeGeneric() {
               <p key={i}>{p}</p>
             ))}
           </div>
+
+          {slug === "pseudo-tumor-cerebri" && (
+            <div className="mt-12">
+              <h2 className="font-display text-3xl mb-4 text-foreground">Shonee's Journey with Pseudo Tumor Cerebri</h2>
+              <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl" style={{ paddingTop: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/A0I3C0Gdipg"
+                  title="Shonee Jackson on her journey with Pseudo Tumor Cerebri"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          )}
+
           <Link to="/donate" className="pill-link mt-10 inline-flex">Support this cause</Link>
         </div>
       </section>

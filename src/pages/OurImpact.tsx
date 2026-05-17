@@ -1,8 +1,5 @@
 import { Layout } from "@/components/Layout";
 import { useSeo } from "@/lib/seo";
-import community from "@/assets/community.jpg";
-import family from "@/assets/family.jpg";
-import signing from "@/assets/signing.jpg";
 
 const stats = [
   { v: "12K+", l: "Meals served" },

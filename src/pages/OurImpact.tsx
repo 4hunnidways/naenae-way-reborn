@@ -1,11 +1,28 @@
 import { Layout } from "@/components/Layout";
 import { useSeo } from "@/lib/seo";
+import img1 from "@/assets/impact/impact-1.jpg";
+import img2 from "@/assets/impact/impact-2.jpg";
+import img3 from "@/assets/impact/impact-3.jpg";
+import img4 from "@/assets/impact/impact-4.jpg";
+import img5 from "@/assets/impact/impact-5.jpg";
+import img6 from "@/assets/impact/impact-6.jpg";
+import img7 from "@/assets/impact/impact-7.jpg";
 
 const stats = [
   { v: "12K+", l: "Meals served" },
   { v: "350+", l: "Families supported" },
   { v: "8", l: "Active initiatives" },
   { v: "20+", l: "Partner organizations" },
+];
+
+const photos = [
+  { src: img1, alt: "Volunteers handing meals to a child on Skid Row" },
+  { src: img2, alt: "Distributing meal bags from the van downtown" },
+  { src: img3, alt: "Preparing meals in the kitchen with young volunteers" },
+  { src: img4, alt: "Packing donation bags with essentials" },
+  { src: img5, alt: "The Nae Nae's Way TeleHealth Van team" },
+  { src: img6, alt: "Founders beside the TeleHealth Van" },
+  { src: img7, alt: "Handing care packages to community members" },
 ];
 
 export default function OurImpact() {
@@ -37,6 +54,28 @@ export default function OurImpact() {
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
+          </div>
+
+          <div className="mt-16">
+            <p className="eyebrow">Moments</p>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">From the field.</h2>
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+              {photos.map((p, i) => (
+                <div
+                  key={i}
+                  className={`overflow-hidden rounded-2xl border border-border bg-card ${
+                    i === 0 ? "md:col-span-2 md:row-span-2" : ""
+                  }`}
+                >
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover aspect-square transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@ import { Layout } from "@/components/Layout";
 import { useSeo } from "@/lib/seo";
 import kitchen1 from "@/assets/homeless-kitchen-1.jpg";
 import kitchen2 from "@/assets/homeless-kitchen-2.jpg";
+import street1 from "@/assets/impact/impact-1.jpg";
+import street2 from "@/assets/impact/impact-2.jpg";
 
 export default function Homelessness() {
   useSeo(

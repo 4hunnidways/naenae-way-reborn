@@ -42,6 +42,7 @@ export function SiteFooter() {
           <p className="eyebrow">Legal</p>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/terms-of-use" className="hover:text-primary">Terms of Use</Link></li>
+            <li><Link to="/medical-disclaimer" className="hover:text-primary">Medical Disclaimer</Link></li>
           </ul>
         </div>
       </div>

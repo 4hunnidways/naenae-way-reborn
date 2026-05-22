@@ -12,6 +12,7 @@ import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
 import TermsOfUse from "./pages/TermsOfUse";
 import MedicalDisclaimer from "./pages/MedicalDisclaimer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Cancer from "./pages/initiatives/Cancer";
 import Diabetes from "./pages/initiatives/Diabetes";
 import Fitness from "./pages/initiatives/Fitness";
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/initiatives/cancer" element={<Cancer />} />
         <Route path="/initiatives/diabetes" element={<Diabetes />} />
         <Route path="/initiatives/fitness-physical-health" element={<Fitness />} />

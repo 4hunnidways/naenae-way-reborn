@@ -68,17 +68,29 @@ export function SiteHeader() {
         <nav className="hidden md:flex items-center gap-1">
           {nav.map((n) =>
             n.children ? (
-              <div key={n.label} className="relative group">
+              <div
+                key={n.label}
+                className="relative"
+                onMouseEnter={() => setOpenGroup(n.label)}
+                onMouseLeave={() => setOpenGroup((g) => (g === n.label ? null : g))}
+              >
                 <NavLinkItem to={n.to!} className="nav-link inline-flex items-center gap-1">
                   {n.label}
                   <ChevronDown size={14} className="opacity-70" />
                 </NavLinkItem>
-                <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <div
+                  className={`absolute left-0 top-full pt-2 transition-all ${
+                    openGroup === n.label
+                      ? "opacity-100 visible"
+                      : "opacity-0 invisible pointer-events-none"
+                  }`}
+                >
                   <div className="min-w-[220px] rounded-2xl bg-background border border-border shadow-2xl p-2">
                     {n.children.map((c) => (
                       <Link
                         key={c.to}
                         to={c.to}
+                        onClick={() => setOpenGroup(null)}
                         className="block px-4 py-2 rounded-xl text-sm hover:bg-surface hover:text-primary transition"
                       >
                         {c.label}
@@ -94,6 +106,7 @@ export function SiteHeader() {
             ),
           )}
         </nav>
+
 
         <button
           className="md:hidden p-2 text-foreground"

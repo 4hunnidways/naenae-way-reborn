@@ -10,6 +10,7 @@ import OurImpact from "./pages/OurImpact";
 import Sponsors from "./pages/Sponsors";
 import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
+import TermsOfUse from "./pages/TermsOfUse";
 import Cancer from "./pages/initiatives/Cancer";
 import Diabetes from "./pages/initiatives/Diabetes";
 import Fitness from "./pages/initiatives/Fitness";

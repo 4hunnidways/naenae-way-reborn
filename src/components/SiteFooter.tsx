@@ -38,6 +38,12 @@ export function SiteFooter() {
             #BlackLivesMatter · #TheMarathonContinues
           </p>
         </div>
+        <div>
+          <p className="eyebrow">Legal</p>
+          <ul className="mt-4 space-y-2 text-sm">
+            <li><Link to="/terms-of-use" className="hover:text-primary">Terms of Use</Link></li>
+          </ul>
+        </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} Nae Nae's Way Inc. All rights reserved.

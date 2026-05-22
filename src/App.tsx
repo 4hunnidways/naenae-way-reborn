@@ -43,6 +43,7 @@ export default function App() {
         <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/initiatives/cancer" element={<Cancer />} />
         <Route path="/initiatives/diabetes" element={<Diabetes />} />
         <Route path="/initiatives/fitness-physical-health" element={<Fitness />} />

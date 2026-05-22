@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
 export function SiteFooter() {
   return (
     <footer className="bg-surface border-t border-border mt-16">
-      <div className="container-narrow grid gap-10 md:grid-cols-3 px-6 py-14">
+      <div className="container-narrow grid gap-10 md:grid-cols-4 px-6 py-14">
         <div>
           <h3 className="font-display text-2xl text-primary">Nae Nae's Way</h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
@@ -37,6 +37,12 @@ export function SiteFooter() {
           <p className="mt-6 text-xs text-muted-foreground">
             #BlackLivesMatter · #TheMarathonContinues
           </p>
+        </div>
+        <div>
+          <p className="eyebrow">Legal</p>
+          <ul className="mt-4 space-y-2 text-sm">
+            <li><Link to="/terms-of-use" className="hover:text-primary">Terms of Use</Link></li>
+          </ul>
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
